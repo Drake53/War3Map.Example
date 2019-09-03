@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\War3Net\src\War3Net.Build\War3Net.Build.csproj" />
+    <ProjectReference Include="..\War3Map.Example.Source\War3Map.Example.Source.csproj" />
+  </ItemGroup>
+
+</Project>
