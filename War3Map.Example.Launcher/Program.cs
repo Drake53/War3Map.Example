@@ -21,7 +21,7 @@ namespace War3Map.Example.Launcher
             var scriptBuilderOptions = new ScriptBuilderOptions();
             // TODO: set map name and description (note: game reads these from the .w3i file, so changing these doesn't really do anything)
             scriptBuilderOptions.MapName = "Just Another Warcraft III Map";
-            scriptBuilderOptions.MapDescription = "Source code generated with CSharp.lua\r\nMap generated with War3Net.Build";
+            scriptBuilderOptions.MapDescription = @"Source code generated with CSharp.lua\r\nMap generated with War3Net.Build";
             // TODO: set player slots
             scriptBuilderOptions.PlayerSlots.Add(new PlayerSlot(0f, 0f, 0, true));
             scriptBuilderOptions.PlayerSlots.Add(new PlayerSlot(0f, 0f, 1, false));
