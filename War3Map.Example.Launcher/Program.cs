@@ -46,6 +46,7 @@ namespace War3Map.Example.Launcher
             // Note: do not use compression, as it is currently bugged.
             scriptCompilerOptions.DefaultFileFlags = MpqFileFlags.Exists;
             scriptCompilerOptions.FileFlags["war3map.wtg"] = 0;
+            scriptCompilerOptions.FileFlags[mapInfo.ScriptLanguage == ScriptLanguage.Jass ? "war3map.lua" : "war3map.j"] = 0;
             scriptCompilerOptions.FileFlags[ListFile.Key] = MpqFileFlags.Exists | MpqFileFlags.Encrypted | MpqFileFlags.BlockOffsetAdjustedKey;
 
             // Build and launch
