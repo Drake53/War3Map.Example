@@ -17,4 +17,4 @@
 - Run the code in visual studio, with War3Map.Example.Launcher as startup project, to make sure everything is working.
     - When Warcraft III launches, you should see the message "Hello World!" appear after one second.
 - Now that everything seems to be working, you can start editing the code in War3Map.Example.Source.
-    - You can also update the player and force settings in War3Map.Example.LauncherPlayerAndForceProperties.
+    - You can also update the player and force settings in War3Map.Example.Launcher.PlayerAndForceProperties.
