@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/War3Map.Example.Launcher/Providers/PersonalStringProvider.cs

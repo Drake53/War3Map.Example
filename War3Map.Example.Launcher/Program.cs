@@ -9,44 +9,53 @@ using System.Diagnostics;
 using System.IO;
 
 using War3Net.Build;
+using War3Net.Build.Providers;
 using War3Net.Build.Script;
+using War3Net.IO.Mpq;
 
 namespace War3Map.Example.Launcher
 {
+    /// <summary>
+    /// To get started, update the following:
+    /// In <see cref="ExampleStringProvider"/>: update the paths and strings.
+    /// In <see cref="PlayerAndForceProperties"/>: update player and force properties.
+    /// In <see cref="Source.Program"/>: write the map script.
+    /// Optionally, you can further customize the properties of mapInfo in this class.
+    /// </summary>
     internal static class Program
     {
         private static void Main()
         {
-            // Configuration
-            var scriptBuilderOptions = new ScriptBuilderOptions();
-            // TODO: set map name and description (note: game reads these from the .w3i file, so changing these doesn't really do anything)
-            scriptBuilderOptions.MapName = "Just Another Warcraft III Map";
-            scriptBuilderOptions.MapDescription = @"Source code generated with CSharp.lua\r\nMap generated with War3Net.Build";
-            // TODO: set player slots
-            scriptBuilderOptions.PlayerSlots.Add(new PlayerSlot(0f, 0f, 0, true));
-            scriptBuilderOptions.PlayerSlots.Add(new PlayerSlot(0f, 0f, 1, false));
+            var stringProvider = new ExampleStringProvider();
+
+            var mapInfo = MapInfo.Parse(FileProvider.GetFile(Path.Combine(stringProvider.BaseMapFilePath, MapInfo.FileName)));
+            mapInfo.ScriptLanguage = ScriptLanguage.Lua;
+            mapInfo.MapName = stringProvider.MapName;
+            mapInfo.MapDescription = stringProvider.MapDescription;
+            mapInfo.MapAuthor = stringProvider.MapAuthor;
+            mapInfo.RecommendedPlayers = stringProvider.RecommendedPlayers;
+
+            PlayerAndForceProperties.ApplyToMapInfo(mapInfo);
 
             var scriptCompilerOptions = new ScriptCompilerOptions();
-            scriptCompilerOptions.BuilderOptions = scriptBuilderOptions;
-            // TODO: rename project(s)?
-            scriptCompilerOptions.SourceDirectory = @"..\..\..\..\War3Map.Example.Source";
-            // TODO: set output directory
-            scriptCompilerOptions.OutputDirectory = @"";
+            scriptCompilerOptions.MapInfo = mapInfo;
+            scriptCompilerOptions.LobbyMusic = stringProvider.LobbyMusic;
+            scriptCompilerOptions.SourceDirectory = stringProvider.SourceProjectPath;
+            scriptCompilerOptions.OutputDirectory = stringProvider.OutputDirectoryPath;
 
-            // TODO: set path to Warcraft III.exe
-            var wc3executablePath = @"";
-            // TODO: optionally customize commandline args
-            var wc3executableArguments = "-nowfpause -graphicsapi Direct3D9 ";
+            // Note: do not use compression, as it is currently bugged.
+            scriptCompilerOptions.DefaultFileFlags = MpqFileFlags.Exists;
+            scriptCompilerOptions.FileFlags["war3map.wtg"] = 0;
+            scriptCompilerOptions.FileFlags[ListFile.Key] = MpqFileFlags.Exists | MpqFileFlags.Encrypted | MpqFileFlags.BlockOffsetAdjustedKey;
 
             // Build and launch
-            var mapName = "TestMap.w3x";
+            var mapName = stringProvider.MapFileName;
             var mapBuilder = new MapBuilder(mapName);
 
-            // TODO: set path(s) to load assets (this can be a .w3m/.w3x file, or a directory)
-            if (mapBuilder.Build(scriptCompilerOptions, @"", @""))
+            if (mapBuilder.Build(scriptCompilerOptions, stringProvider.AssetsDirectoryPath, stringProvider.BaseMapFilePath))
             {
                 var mapPath = Path.Combine(scriptCompilerOptions.OutputDirectory, mapName);
-                Process.Start(wc3executablePath, $"{wc3executableArguments} -loadfile \"{mapPath}\"");
+                Process.Start(stringProvider.Warcraft3ExecutablePath, $"{stringProvider.CommandLineArguments} -loadfile \"{mapPath}\"");
             }
         }
     }
