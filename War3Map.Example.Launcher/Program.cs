@@ -29,11 +29,13 @@ namespace War3Map.Example.Launcher
             var stringProvider = new ExampleStringProvider();
 
             var mapInfo = MapInfo.Parse(FileProvider.GetFile(Path.Combine(stringProvider.BaseMapFilePath, MapInfo.FileName)));
-            mapInfo.ScriptLanguage = ScriptLanguage.Lua;
             mapInfo.MapName = stringProvider.MapName;
             mapInfo.MapDescription = stringProvider.MapDescription;
             mapInfo.MapAuthor = stringProvider.MapAuthor;
             mapInfo.RecommendedPlayers = stringProvider.RecommendedPlayers;
+
+            mapInfo.MapFlags &= ~MapFlags.MeleeMap;
+            mapInfo.ScriptLanguage = ScriptLanguage.Lua;
 
             PlayerAndForceProperties.ApplyToMapInfo(mapInfo);
 
