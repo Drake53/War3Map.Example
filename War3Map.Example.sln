@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War3Net.IO.Compression", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War3Net.CodeAnalysis.Jass", "..\War3Net\src\War3Net.CodeAnalysis.Jass\War3Net.CodeAnalysis.Jass.csproj", "{8FAAEF03-B26A-498B-9861-C23E957480A4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War3Net.CodeAnalysis.CSharp", "..\War3Net\src\War3Net.CodeAnalysis.CSharp\War3Net.CodeAnalysis.CSharp.csproj", "{E115211A-BD24-4763-A294-3743B4684F22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{8FAAEF03-B26A-498B-9861-C23E957480A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FAAEF03-B26A-498B-9861-C23E957480A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FAAEF03-B26A-498B-9861-C23E957480A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E115211A-BD24-4763-A294-3743B4684F22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E115211A-BD24-4763-A294-3743B4684F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E115211A-BD24-4763-A294-3743B4684F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E115211A-BD24-4763-A294-3743B4684F22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
