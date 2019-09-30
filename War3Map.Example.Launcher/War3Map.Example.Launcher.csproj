@@ -2,13 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\War3Net\src\War3Net.Build\War3Net.Build.csproj" />
+    <ProjectReference Include="..\..\War3Net\src\War3Net.IO.Mpq\War3Net.IO.Mpq.csproj" />
     <ProjectReference Include="..\War3Map.Example.Source\War3Map.Example.Source.csproj" />
   </ItemGroup>
 
