@@ -45,8 +45,8 @@ namespace War3Map.Example.Launcher
             scriptCompilerOptions.SourceDirectory = stringProvider.SourceProjectPath;
             scriptCompilerOptions.OutputDirectory = stringProvider.OutputDirectoryPath;
 
-            // Note: do not use compression, as it is currently bugged.
-            scriptCompilerOptions.DefaultFileFlags = MpqFileFlags.Exists;
+            // Note: do not use MpqFileFlags.SingleUnit, as it appears to be bugged.
+            scriptCompilerOptions.DefaultFileFlags = MpqFileFlags.Exists | MpqFileFlags.CompressedMulti;
             scriptCompilerOptions.FileFlags["war3map.wtg"] = 0;
             scriptCompilerOptions.FileFlags[mapInfo.ScriptLanguage == ScriptLanguage.Jass ? "war3map.lua" : "war3map.j"] = 0;
             scriptCompilerOptions.FileFlags[ListFile.Key] = MpqFileFlags.Exists | MpqFileFlags.Encrypted | MpqFileFlags.BlockOffsetAdjustedKey;
