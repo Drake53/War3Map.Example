@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="War3Api.Common" Version="1.31.1.2" />
+    <PackageReference Include="War3Lib.Extensions.Common.Sources" Version="0.0.1" />
+  </ItemGroup>
+
+</Project>
