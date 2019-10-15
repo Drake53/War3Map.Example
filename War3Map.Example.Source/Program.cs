@@ -19,6 +19,11 @@ namespace War3Map.Example.Source
             {
                 msg.Display(1f);
             }
+
+            FogEnable(false);
+            FogMaskEnable(false);
+
+            PerlinExample.Run();
         }
     }
 }

@@ -39,7 +39,7 @@ namespace War3Map.Example.Launcher
 
             PlayerAndForceProperties.ApplyToMapInfo(mapInfo);
 
-            var scriptCompilerOptions = new ScriptCompilerOptions();
+            var scriptCompilerOptions = new ScriptCompilerOptions(@".\LuaLibs\PerlinNoise.lua");
             scriptCompilerOptions.MapInfo = mapInfo;
             scriptCompilerOptions.LobbyMusic = stringProvider.LobbyMusic;
             scriptCompilerOptions.SourceDirectory = stringProvider.SourceProjectPath;
