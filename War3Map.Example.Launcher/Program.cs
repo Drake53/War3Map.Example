@@ -61,7 +61,8 @@ namespace War3Map.Example.Launcher
             if (mapBuilder.Build(scriptCompilerOptions, stringProvider.AssetsDirectoryPath, stringProvider.BaseMapFilePath))
             {
                 var mapPath = Path.Combine(scriptCompilerOptions.OutputDirectory, mapName);
-                Process.Start(stringProvider.Warcraft3ExecutablePath, $"{stringProvider.CommandLineArguments} -loadfile \"{mapPath}\"");
+                var absoluteMapPath = new FileInfo(mapPath).FullName;
+                Process.Start(stringProvider.Warcraft3ExecutablePath, $"{stringProvider.CommandLineArguments} -loadfile \"{absoluteMapPath}\"");
             }
         }
     }
