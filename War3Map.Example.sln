@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War3Net.CodeAnalysis.CSharp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War3Net.CodeAnalysis.Common", "..\War3Net\src\War3Net.CodeAnalysis.Common\War3Net.CodeAnalysis.Common.csproj", "{891C8F54-D567-44AF-B22D-BA4C5B61BC22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "War3Map.Example.Source.Dependency", "War3Map.Example.Source.Dependency\War3Map.Example.Source.Dependency.csproj", "{ADB743E0-ED95-4EFC-B553-CA92C7C9BDD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "War3Map.Example.Source.Dependency", "War3Map.Example.Source.Dependency\War3Map.Example.Source.Dependency.csproj", "{ADB743E0-ED95-4EFC-B553-CA92C7C9BDD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
