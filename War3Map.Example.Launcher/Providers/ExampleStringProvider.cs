@@ -21,12 +21,12 @@ namespace War3Map.Example.Launcher
         /// Meant to replace World Editor's import manager.
         /// This property is optional, and can be set to null.
         /// </summary>
-        public override string AssetsDirectoryPath => throw new System.NotImplementedException();
+        public override string AssetsDirectoryPath => base.AssetsDirectoryPath;
 
         /// <summary>
         /// Directory in which the build files will be created, including the new .w3x file.
         /// </summary>
-        public override string OutputDirectoryPath => throw new System.NotImplementedException();
+        public override string OutputDirectoryPath => base.OutputDirectoryPath;
 
         /// <summary>
         /// Path to Warcraft III.exe.
