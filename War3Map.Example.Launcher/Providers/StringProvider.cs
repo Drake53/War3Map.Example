@@ -27,9 +27,9 @@ namespace War3Map.Example.Launcher
 
         public abstract string BaseMapFilePath { get; }
 
-        public abstract string AssetsDirectoryPath { get; }
+        public virtual string AssetsDirectoryPath => @".\Assets";
 
-        public abstract string OutputDirectoryPath { get; }
+        public virtual string OutputDirectoryPath => @"..\..\..\..\artifacts";
 
         public abstract string Warcraft3ExecutablePath { get; }
     }
