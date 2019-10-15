@@ -44,6 +44,9 @@ namespace War3Map.Example.Source.Dependency
             {
                 // PauseTimer(_timer);
                 DestroyTimer(_timer);
+#if DEBUG
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "[Debug] Timer destroyed.");
+#endif
             }
             else
             {
