@@ -7,6 +7,9 @@
 
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+
+using CSharpLua.CoreSystem;
 
 using War3Net.Build;
 using War3Net.Build.Providers;
@@ -39,7 +42,7 @@ namespace War3Map.Example.Launcher
 
             PlayerAndForceProperties.ApplyToMapInfo(mapInfo);
 
-            var scriptCompilerOptions = new ScriptCompilerOptions(@".\LuaLibs\PerlinNoise.lua");
+            var scriptCompilerOptions = new ScriptCompilerOptions(CoreSystemProvider.GetCoreSystemFiles().Append(@".\LuaLibs\PerlinNoise.lua"));
             scriptCompilerOptions.MapInfo = mapInfo;
             scriptCompilerOptions.LobbyMusic = stringProvider.LobbyMusic;
             scriptCompilerOptions.SourceDirectory = stringProvider.SourceProjectPath;
